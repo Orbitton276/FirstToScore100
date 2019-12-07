@@ -51,7 +51,11 @@ function holdIt(){
 
     if(scores[activePlayer]>=endScore){
         //Game Over
+
         document.getElementById('name-'+activePlayer).innerHTML = 'Winner!';
+        document.querySelector('.dice').style.display = 'none';
+        document.querySelector('.player-'+activePlayer+'-panel').classList.add('winner');
+        document.querySelector('.player-'+activePlayer+'-panel').classList.remove('active');
         rollBtn.disabled = true;
     }
     else{
