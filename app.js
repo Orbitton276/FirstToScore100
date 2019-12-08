@@ -14,15 +14,13 @@ var dice;
 var diceImage;
 var roundscore;
 var rollBtn;
-const endScore = 100;
+const endScore = 10;
 var Players = [
     window.prompt("First player name",""),
     window.prompt("Second player name","")
 ];
 function runGame(){
-    document.querySelector('.player-'+activePlayer+'-panel').classList.remove('winner');
-    document.querySelector('.player-'+activePlayer+'-panel').classList.add('active');
-    //
+
     document.getElementById('name-0').innerHTML = Players[0];
     document.getElementById('name-1').innerHTML = Players[1];
     document.getElementById('score-1').innerHTML='0';
@@ -32,6 +30,8 @@ function runGame(){
     scores = [0,0];
     activePlayer = 0;
     rollBtn = document.querySelector('.btn-roll'); 
+    document.querySelector('.player-'+activePlayer+'-panel').classList.add('active');
+
     rollBtn.disabled = false;
 
     dice;
@@ -88,4 +88,7 @@ rollBtn.addEventListener('click',function(){
  
 });
 
-document.querySelector('.btn-new').addEventListener('click',runGame);
+document.querySelector('.btn-new').addEventListener('click',function(){
+    document.querySelector('.player-'+activePlayer+'-panel').classList.remove('winner');
+    runGame();
+});
