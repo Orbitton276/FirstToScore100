@@ -20,6 +20,8 @@ var Players = [
     window.prompt("Second player name","")
 ];
 function runGame(){
+    document.querySelector('.player-'+activePlayer+'-panel').classList.remove('winner');
+    document.querySelector('.player-'+activePlayer+'-panel').classList.add('active');
 
     document.getElementById('name-0').innerHTML = Players[0];
     document.getElementById('name-1').innerHTML = Players[1];
